@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import axios from "axios";
 const RegisterForm = () => {
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
@@ -7,9 +7,24 @@ const RegisterForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const novoUsuario = {nome, email}
-        localStorage.setItem('user', JSON.stringify(novoUsuario))
-        window.location.href='/'
+
+        try {
+          const response = await axios.post("http://localhost:5000/api/users" ,{
+            name: nome,
+            email,
+            password : senha
+          });
+
+          alert("Usuário cadastrado com sucesso!!" + `nome: ${response.data.nome} email: ${response.data.email}`)
+
+          window.location.href = "/login"
+        } catch (error) {
+            if(erro.respose){
+                alert("Erro ao cadastrar usuário")
+            }else{
+                alert("erro ao conectar ao servidor")
+            }
+        }
         
     }
     return (
