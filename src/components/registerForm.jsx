@@ -16,7 +16,6 @@ const RegisterForm = () => {
           });
 
           alert("Usuário cadastrado com sucesso!!" + `nome: ${response.data.nome} email: ${response.data.email}`)
-
           window.location.href = "/login"
         } catch (error) {
             if(erro.respose){
