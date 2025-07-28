@@ -5,7 +5,7 @@ const RegisterForm = () => {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
