@@ -9,7 +9,7 @@ const LoginForm = () => {
         try {
           const response = await axios.post("https://backend-portalturismo-xms5.onrender.com/api/auth/login", {
             email,
-            password
+            password: senha
           })
           const userData = response.data;
           localStorage.setItem("user", JSON.stringify(userData))
